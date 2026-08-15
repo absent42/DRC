@@ -16,7 +16,7 @@ BEGIN
   WriteLn();
 	WriteLn('file.DSF is a DAAD', ' ', version_hi, '.', version_lo, ' source file.');
   WriteLn();
-	WriteLn('<target> is the target machine, one of this list: ZX, CPC, C64, CP4, CPM, MSX, MSX2, ZX81, PCW, PC, AMIGA, ST or HTML. The target machine will be added as if there were a ''#define <target> '' in the code, so you can make the code depend on target platform. Just to clarify, CP4 stands for Commodore Plus/4');
+	WriteLn('<target> is the target machine, one of this list: ZX, NEXTDAAD, CPC, C64, CP4, CPM, MSX, MSX2, ZX81, PCW, PC, AMIGA, ST or HTML. The target machine will be added as if there were a ''#define <target> '' in the code, so you can make the code depend on target platform. Just to clarify, CP4 stands for Commodore Plus/4');
   WriteLn();
 	WriteLn('[subtarget] is an parameter only required when the target is ZX, ZX81, MSX2 or PC. Will define the internal variable COLS, which can later be used in DAAD processes.');
   Writeln('For MSX2 values are a compound value of video mode (from mode 5 to 12, except 9 and 11) and the with of the charset im pixels, which can be 6 or 8. Example: 5_8, 10_8, 12_6, 7_6, etc.');
@@ -122,7 +122,8 @@ BEGIN
  IF Target = 'ST' THEN Result := 53 ELSE
  IF Target = 'AMIGA' THEN Result := 53 ELSE
  IF Target = 'PCW' THEN Result := 90 ELSE
- IF Target = 'ZX81' THEN Result := getZX81ColsBySubtarget(SubTarget)
+ IF Target = 'ZX81' THEN Result := getZX81ColsBySubtarget(SubTarget) ELSE
+ IF Target = 'NEXTDAAD' THEN Result := 80
  ELSE Result :=42;  // Conservative
  END;
 
@@ -132,7 +133,8 @@ BEGIN
   IF Target = 'MSX2' THEN Result := 26 ELSE
   IF Target = 'ZX81' THEN Result := 24 ELSE
   IF Target = 'ZX' THEN Result := 24 ELSE
-  IF Target = 'MSX' THEN Result := 24 
+  IF Target = 'MSX' THEN Result := 24 ELSE
+  IF Target = 'NEXTDAAD' THEN Result := 32
   ELSE  Result := 25;
 END;
 
