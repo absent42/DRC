@@ -1,3 +1,6 @@
 src/*.ppu
 src/*.o
 src/*.exe
+docs/
+CLAUDE.md
+./*
