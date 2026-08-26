@@ -240,7 +240,7 @@ BEGIN
   END; 
   machine :=AnsiUpperCase(Target);
   // The target superset BIT8 or BIT16
-  if (machine='ZX') OR (machine='CPC') OR (machine='PCW') OR (machine='MSX') OR (machine='C64') OR (machine='CP4') OR (machine='MSX2') OR (machine='ZX81') OR (machine='CPM') THEN AddSymbol(SymbolList, 'BIT8', 1);
+  if (machine='ZX') OR (machine='CPC') OR (machine='PCW') OR (machine='MSX') OR (machine='C64') OR (machine='CP4') OR (machine='MSX2') OR (machine='ZX81') OR (machine='CPM') OR (machine='NEXTDAAD') THEN AddSymbol(SymbolList, 'BIT8', 1);
   if (machine='PC') OR (machine='AMIGA') OR (machine='ST') THEN AddSymbol(SymbolList, 'BIT16', 1);
   // Please notice HTML target adds neither BIT8 nor BIT16 symbols.
   // add COLS Symbol
